@@ -1,0 +1,77 @@
+{
+ "embedModel": "text-embedding-3-small",
+ "builtAt": null,
+ "placeholder": true,
+ "chunks": [
+  {
+   "id": "profile",
+   "title": "Profile and summary",
+   "text": "Huining Li is a Technical Lead based in Brisbane, Australia, with 15+ years of software engineering experience. He is a full-stack engineer and technical leader working across .NET, Node.js/TypeScript and Angular, with the last year focused on building AI-augmented and agentic systems in production. He combines hands-on engineering with architectural ownership: setting technical direction, making and defending architecture decisions, mentoring engineers, and staying in the code. He is eligible to work in Australia and is open to hybrid or remote roles."
+  },
+  {
+   "id": "current-role",
+   "title": "Current role — Technical Lead",
+   "text": "Huining has been a Technical Lead since February 2023, after joining as a Senior Software Engineer in July 2020. He leads a team of six engineers on an enterprise, multi-tenant SaaS lending and payments platform in the Australian fintech sector. He owns architecture end to end, runs design and code reviews, sets engineering standards, and works directly with product and business stakeholders. He drove the platform-wide migration to .NET 8 and introduced AI-augmented engineering practices across the team."
+  },
+  {
+   "id": "platform-scale",
+   "title": "Platform scale and domain",
+   "text": "The lending and payments platform Huining leads services 250,000+ loans and 600,000+ customer records. It operates under Australian financial-services regulation, including SACC and MACC consumer credit rules, which means customer-data isolation, auditability and compliance controls are designed in from the start rather than added later. The domain covers the full loan lifecycle: lead intake, application assessment, settlement, loan servicing, and payments and collections, including single and recurring direct debits."
+  },
+  {
+   "id": "architecture",
+   "title": "Architecture and system design experience",
+   "text": "Huining designs and owns architecture for a modular, domain-driven platform: cleanly separated bounded contexts on .NET, an asynchronous messaging backbone for cross-component workflows, and independently deployable services and background workers. He works with event-driven patterns, message queues with retries and dead-letter handling, idempotent side effects, ports-and-adapters abstractions for third-party providers, and multi-tenant data isolation. He has deliberately traded distributed autonomy for strong consistency where regulated money movement demands it, and can explain that trade-off in depth."
+  },
+  {
+   "id": "reliability",
+   "title": "Reliability, deployment and infrastructure-as-code",
+   "text": "Huining architected a zero-downtime, fault-tolerant deployment strategy using blue/green releases, expand-then-contract database migrations so old and new application versions can run against one database during rollout, high-availability database failover, and shared cache and secret management. He implemented infrastructure-as-code with Microsoft Bicep for idempotent, diffable, repeatable multi-environment provisioning, replacing a manual runbook process. He works with CI/CD pipelines in Azure DevOps and GitHub Actions, and observability through Application Insights."
+  },
+  {
+   "id": "ai-work",
+   "title": "AI and agentic engineering work",
+   "text": "Over the past year Huining has taken AI from proof of concept into production in a regulated environment. He designed and built a Node.js/TypeScript MCP (Model Context Protocol) server exposing a Retrieval-Augmented Generation pipeline, using LangChain and LangGraph with Azure AI Search for vector retrieval and Azure OpenAI for generation, returning answers grounded in real business data with source attribution. He has built multi-agent orchestration pipelines including agent-to-agent workflows, persistent AI memory systems, and guardrail and human-in-the-loop controls that keep agent output reliable, explainable and safe. He works across models from multiple vendors (Anthropic, OpenAI and Azure OpenAI) and deliberately designs model-agnostic abstractions."
+  },
+  {
+   "id": "ai-in-sdlc",
+   "title": "AI across the software delivery lifecycle",
+   "text": "Huining drove adoption of AI-augmented engineering across his team, making agentic coding tools such as Claude Code and Codex a core part of how the team ships software. This includes AI-assisted test generation, debugging and code review, plus the agent guidance, skills, hooks and reference implementations that let engineers use AI productively without sacrificing quality. He established the standards and guardrails for safe internal AI use, and treats verifying AI output as a first-class engineering skill rather than trusting it."
+  },
+  {
+   "id": "skills-core",
+   "title": "Core technical skills",
+   "text": "Backend: C# and .NET (including .NET 8), Node.js and TypeScript, Python. Frontend: Angular, React, TypeScript and JavaScript, with attention to UX. Data: SQL Server, PostgreSQL, Redis, Azure AI Search, vector indexing and embeddings. Cloud: Microsoft Azure (App Services, Container Apps, Functions, Service Bus, Key Vault, Blob Storage, Azure AD B2C, Azure OpenAI, AI Search), with working AWS exposure. DevOps: Bicep infrastructure-as-code, Azure DevOps and GitHub Actions CI/CD, Docker, blue/green deployment, Application Insights. Practices: domain-driven design, event-driven architecture, APIs and integration patterns, mediator pattern, testing and observability."
+  },
+  {
+   "id": "skills-ai",
+   "title": "AI and machine learning skills",
+   "text": "Retrieval-Augmented Generation (RAG), embeddings and vector search, hybrid search, semantic retrieval, chunking strategies, grounding and citation/source attribution. Agent frameworks and orchestration with LangChain and LangGraph, MCP servers, multi-agent and agent-to-agent workflows, tool use and structured output. Responsible AI practice: input guardrails and prompt-injection screening, output validation, human-in-the-loop approval gates, explainability and audit trails. Evaluation: golden test sets, offline evals in CI, groundedness and citation-precision metrics, LLM-as-judge with human calibration, drift and quality monitoring."
+  },
+  {
+   "id": "leadership",
+   "title": "Leadership and communication",
+   "text": "Huining leads a team of six engineers. He mentors through code review, design review and pairing, sets technical standards, and runs architecture decisions collaboratively — welcoming technical debate rather than mandating. He translates technical trade-offs into plain business language for senior and non-technical stakeholders up to executive level, and has led cross-cutting initiatives that required organisation-wide buy-in, such as the .NET 8 migration and AI adoption. He works well in environments where requirements are ambiguous and priorities shift, and prefers to bring structure to ambiguity rather than wait for perfect specifications."
+  },
+  {
+   "id": "earlier-career",
+   "title": "Earlier career",
+   "text": "Before his current role Huining spent over a decade in software engineering across enterprise systems, including document-processing systems where he delivered OCR and metadata-extraction pipelines, and a range of full-stack development roles. That earlier work built his foundation in enterprise integration, data handling and delivering software in commercial settings. His career spans 15+ years in total."
+  },
+  {
+   "id": "education",
+   "title": "Education",
+   "text": "Master of Information Technology (Software Architecture) from Queensland University of Technology (QUT), Brisbane, graduating with a GPA of 6.167 out of 7.0. Bachelor of Computer Science from Chongqing University of Posts and Telecommunications, China."
+  },
+  {
+   "id": "what-he-wants",
+   "title": "What Huining is looking for",
+   "text": "Huining is looking for a role where he can set technical direction while staying hands-on — ideally a Technical Lead, Principal Engineer, AI Solutions Lead or similar position working on production AI and agentic systems, or leading a full-stack platform. He is most engaged by ambiguous, high-stakes problems: secure and governed AI in regulated or mission-critical environments, architecture that has to scale, and teams where good ideas get heard and ownership is real. He is Brisbane-based and comfortable with hybrid or remote arrangements."
+  },
+  {
+   "id": "contact",
+   "title": "Contact",
+   "text": "You can reach Huining Li by email at hiro.l.dragon@gmail.com, or on LinkedIn at linkedin.com/in/huining-li-2b05ab26. He is based in Brisbane, Australia. For anything not covered in these documents — referees, detailed availability, salary expectations, or specifics about confidential work — please contact him directly by email."
+  }
+ ]
+}
