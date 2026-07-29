@@ -1,4 +1,5 @@
 import { PAGE } from "./page";
+import { ogImageResponse } from "./og";
 import { ask } from "./pipeline";
 import { OpenAiCompatibleClient } from "./openai";
 import { REFUSAL_UNAVAILABLE } from "./guardrails";
@@ -41,6 +42,11 @@ export default {
       return new Response(PAGE, {
         headers: { "content-type": "text/html;charset=utf-8", "cache-control": "public, max-age=300" },
       });
+    }
+
+    // Social preview image referenced by the OpenGraph tags.
+    if (request.method === "GET" && url.pathname === "/og.png") {
+      return ogImageResponse();
     }
 
     if (url.pathname === "/api/ask") {

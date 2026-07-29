@@ -11,7 +11,7 @@ compatibility_date = "2024-11-01"
 
 # Chat model. For OpenRouter, use a namespaced id, e.g. "openai/gpt-4o-mini"
 # or "anthropic/claude-3.5-haiku".
-MODEL = "gpt-4o-mini"
+MODEL = "openai/gpt-4o-mini"
 
 # Embedding model. MUST match the model used by `npm run build:index`,
 # because vectors from different models are not comparable.

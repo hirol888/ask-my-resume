@@ -1,10 +1,36 @@
+export const SITE_URL = "https://ask-my-resume.huiningli.workers.dev";
+const OG_TITLE = "Ask my resume — Huining Li";
+const OG_DESC =
+  "A RAG assistant I built that answers questions about my engineering experience — grounded in my own documents, with source citations.";
+
 export const PAGE = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ask my resume — Huining Li</title>
-<meta name="description" content="A grounded RAG assistant that answers questions about Huining Li's engineering experience, with citations.">
+<title>${OG_TITLE}</title>
+<meta name="description" content="${OG_DESC}">
+<link rel="canonical" href="${SITE_URL}/">
+
+<!-- OpenGraph: required for LinkedIn / Slack / Facebook link previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ask my resume">
+<meta property="og:url" content="${SITE_URL}/">
+<meta property="og:title" content="${OG_TITLE}">
+<meta property="og:description" content="${OG_DESC}">
+<meta property="og:image" content="${SITE_URL}/og.png">
+<meta property="og:image:secure_url" content="${SITE_URL}/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ask my resume — a grounded RAG assistant built by Huining Li">
+<meta property="og:locale" content="en_AU">
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${OG_TITLE}">
+<meta name="twitter:description" content="${OG_DESC}">
+<meta name="twitter:image" content="${SITE_URL}/og.png">
 <style>
   :root {
     --royal:#1d4ed8; --royal-dk:#1e3a8a; --amber:#d97706; --ink:#1f2937;
