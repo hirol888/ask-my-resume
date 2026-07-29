@@ -1,0 +1,41 @@
+name = "ask-my-resume"
+main = "src/worker.ts"
+compatibility_date = "2024-11-01"
+
+[vars]
+# --- Provider ---------------------------------------------------------------
+# OpenAI direct (default): leave BASE_URL unset, set the OPENAI_API_KEY secret.
+# OpenRouter: set the OPENROUTER_API_KEY secret instead; BASE_URL then defaults
+# to https://openrouter.ai/api/v1 automatically. You can also set it explicitly.
+# BASE_URL = "https://openrouter.ai/api/v1"
+
+# Chat model. For OpenRouter, use a namespaced id, e.g. "openai/gpt-4o-mini"
+# or "anthropic/claude-3.5-haiku".
+MODEL = "gpt-4o-mini"
+
+# Embedding model. MUST match the model used by `npm run build:index`,
+# because vectors from different models are not comparable.
+EMBED_MODEL = "text-embedding-3-small"
+
+# Optional: your public URL. Sent as HTTP-Referer, which OpenRouter uses for
+# attribution. Harmless with OpenAI.
+# SITE_URL = "https://ask-my-resume.example.workers.dev"
+
+# --- Cost and abuse controls ------------------------------------------------
+MAX_QUESTION_CHARS = "500"
+MAX_OUTPUT_TOKENS = "450"
+RATE_LIMIT_PER_MINUTE = "6"
+DAILY_QUESTION_CAP = "500"
+
+# Optional but recommended: a KV namespace makes rate limiting and the daily cap
+# durable across isolates. Without it the worker still runs (best-effort,
+# in-memory limits only). Create one with:
+#   npx wrangler kv namespace create RATE_LIMIT
+# then uncomment and paste the id below.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "paste-your-kv-namespace-id"
+
+# Secret (never commit it) — set ONE of these:
+#   npx wrangler secret put OPENAI_API_KEY
+#   npx wrangler secret put OPENROUTER_API_KEY
