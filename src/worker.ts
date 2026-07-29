@@ -1,4 +1,4 @@
-import { PAGE } from "./page";
+import { renderPage } from "./page";
 import { ogImageResponse } from "./og";
 import { ask } from "./pipeline";
 import { OpenAiCompatibleClient } from "./openai";
@@ -39,7 +39,10 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === "GET" && url.pathname === "/") {
-      return new Response(PAGE, {
+      // SITE_URL pins the public hostname when set; otherwise use whatever host
+      // served this request, so canonical/og:url always match the visitor's URL.
+      const origin = env.SITE_URL?.replace(/\/$/, "") || url.origin;
+      return new Response(renderPage(origin), {
         headers: { "content-type": "text/html;charset=utf-8", "cache-control": "public, max-age=300" },
       });
     }

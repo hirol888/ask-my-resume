@@ -1,9 +1,15 @@
-export const SITE_URL = "https://ask-my-resume.huiningli.workers.dev";
+// The canonical / OpenGraph URLs are derived from the request origin rather than
+// hardcoded, so the page advertises whichever hostname actually served it. Getting
+// this wrong points crawlers (LinkedIn especially) at a different domain than the
+// one the visitor used, and they reject or rewrite the preview.
+const DEFAULT_ORIGIN = "https://ask.awesomehiro.art";
 const OG_TITLE = "Ask my resume — Huining Li";
 const OG_DESC =
   "A RAG assistant I built that answers questions about my engineering experience — grounded in my own documents, with source citations.";
 
-export const PAGE = `<!DOCTYPE html>
+export function renderPage(origin: string = DEFAULT_ORIGIN): string {
+  const SITE_URL = origin.replace(/\/$/, "");
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -182,3 +188,4 @@ export const PAGE = `<!DOCTYPE html>
 </script>
 </body>
 </html>`;
+}

@@ -17,9 +17,10 @@ MODEL = "openai/gpt-4o-mini"
 # because vectors from different models are not comparable.
 EMBED_MODEL = "text-embedding-3-small"
 
-# Optional: your public URL. Sent as HTTP-Referer, which OpenRouter uses for
-# attribution. Harmless with OpenAI.
-# SITE_URL = "https://ask-my-resume.example.workers.dev"
+# Your canonical public URL. Used for canonical/OpenGraph tags (so crawlers are
+# never pointed at a different hostname) and sent as HTTP-Referer for OpenRouter
+# attribution. Leave unset to fall back to whatever host served the request.
+SITE_URL = "https://ask.awesomehiro.art"
 
 # --- Cost and abuse controls ------------------------------------------------
 MAX_QUESTION_CHARS = "500"
