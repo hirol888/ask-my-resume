@@ -2,6 +2,12 @@ name = "ask-my-resume"
 main = "src/worker.ts"
 compatibility_date = "2024-11-01"
 
+# Persist console.log output so questions can be browsed in the Cloudflare
+# dashboard (Workers & Pages -> ask-my-resume -> Logs) rather than only live
+# via `wrangler tail`.
+[observability]
+enabled = true
+
 [vars]
 # --- Provider ---------------------------------------------------------------
 # OpenAI direct (default): leave BASE_URL unset, set the OPENAI_API_KEY secret.

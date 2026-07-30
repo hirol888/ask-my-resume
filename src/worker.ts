@@ -85,6 +85,21 @@ export default {
           maxQuestionChars: num(env.MAX_QUESTION_CHARS, 500),
           maxOutputTokens: num(env.MAX_OUTPUT_TOKENS, 450),
         });
+
+        // What people actually ask is the useful signal here. Log the question and
+        // the outcome, but deliberately NOT the IP or any other identifier — the
+        // country header is coarse enough to be interesting without being tracking.
+        console.log(
+          JSON.stringify({
+            at: new Date().toISOString(),
+            country: request.headers.get("cf-ipcountry") ?? "??",
+            q: question.slice(0, 300),
+            refused: result.refused,
+            reasons: result.reasons,
+            cites: result.citations,
+          }),
+        );
+
         return json({ answer: result.answer, citations: result.citations, refused: result.refused });
       } catch (error) {
         // Log the reason for us; return something safe and useful to the visitor.
