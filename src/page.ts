@@ -130,7 +130,8 @@ export function renderPage(origin: string = DEFAULT_ORIGIN): string {
 
   <footer>
     This assistant can still be wrong. For anything that matters, please
-    <a href="mailto:hiro.l.dragon@gmail.com">email me</a>.
+    <a href="mailto:hiro.l.dragon@gmail.com">email me</a>.<br>
+    Questions are logged (without any personal identifiers) so I can see what to cover better.
   </footer>
 </div>
 
@@ -186,6 +187,10 @@ export function renderPage(origin: string = DEFAULT_ORIGIN): string {
     }
   });
 </script>
+
+<!-- Cloudflare Web Analytics: privacy-first, cookie-free page views and referrers. -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "30e6e5b72d29456286b6b30ca6625325"}'></script>
 </body>
 </html>`;
 }
