@@ -112,7 +112,7 @@ Cloudflare's free tier covers the hosting.
 ## Design notes
 
 - **Build-time indexing.** Embeddings are computed once and shipped as `src/index.json`. The corpus is
-  small (20 chunks), so in-memory cosine similarity is plenty — no vector database to run, pay for, or
+  small (21 chunks), so in-memory cosine similarity is plenty — no vector database to run, pay for, or
   keep alive. Honest trade-off: this wouldn't scale to a large corpus, and that's fine, it doesn't need to.
 - **Grounding over fluency.** A confident wrong claim about my own experience would be worse than no
   answer, so the model may only use retrieved context, and the pipeline refuses outright when retrieval
