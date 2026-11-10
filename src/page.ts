@@ -58,7 +58,12 @@ export function renderPage(origin: string = DEFAULT_ORIGIN): string {
   button { padding:12px 20px; font-size:16px; font-weight:600; color:#fff; background:var(--royal);
            border:0; border-radius:8px; cursor:pointer; font-family:inherit; }
   button:disabled { background:#9db4e0; cursor:default; }
-  .chips { margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chips { margin-top:16px; display:grid; gap:10px; }
+  .chip-group { display:grid; grid-template-columns:96px 1fr; align-items:baseline; gap:8px; }
+  .chip-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip-label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+                color:var(--muted); }
+  @media (max-width:560px) { .chip-group { grid-template-columns:1fr; gap:6px; } }
   .chip { font-size:13px; color:var(--royal-dk); background:#eef3fd; border:1px solid var(--line);
           border-radius:999px; padding:6px 12px; cursor:pointer; }
   .chip:hover { background:#e2ebfb; }
@@ -81,6 +86,7 @@ export function renderPage(origin: string = DEFAULT_ORIGIN): string {
     <div class="tag">
       Huining Li · Technical Lead, Brisbane ·
       <a href="https://www.linkedin.com/in/huining-li-2b05ab26/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/hirol888" target="_blank" rel="noopener">GitHub</a> ·
       <a href="mailto:hiro.l.dragon@gmail.com">hiro.l.dragon@gmail.com</a>
     </div>
   </header>
@@ -136,20 +142,44 @@ export function renderPage(origin: string = DEFAULT_ORIGIN): string {
 </div>
 
 <script>
+  // Grouped by what a recruiter usually asks first; each question maps to a corpus chunk.
   const SAMPLES = [
-    "What AI systems has he built in production?",
-    "Tell me about his architecture experience",
-    "Has he led a team?",
-    "What's his experience with LangChain and LangGraph?",
-    "Does he know AWS?",
-    "What is he looking for in his next role?"
+    ["Background", [
+      "Where has he worked?",
+      "Has he led a team?",
+      "Tell me about his architecture experience"
+    ]],
+    ["AI work", [
+      "What AI systems has he built in production?",
+      "How does he use AI coding agents?"
+    ]],
+    ["ShuttleRise", [
+      "What is he building at ShuttleRise?",
+      "What tech stack does ShuttleRise use?"
+    ]],
+    ["Next role", [
+      "What is he looking for in his next role?",
+      "When is he available to start?"
+    ]]
   ];
   const chips = document.getElementById("chips");
-  SAMPLES.forEach(s => {
-    const b = document.createElement("button");
-    b.type = "button"; b.className = "chip"; b.textContent = s;
-    b.onclick = () => { document.getElementById("q").value = s; document.getElementById("f").requestSubmit(); };
-    chips.appendChild(b);
+  SAMPLES.forEach(([label, questions]) => {
+    const group = document.createElement("div");
+    group.className = "chip-group";
+    group.setAttribute("role", "group");
+    group.setAttribute("aria-label", label);
+    const l = document.createElement("span");
+    l.className = "chip-label"; l.textContent = label; l.setAttribute("aria-hidden", "true");
+    const row = document.createElement("div");
+    row.className = "chip-row";
+    questions.forEach(s => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.textContent = s;
+      b.onclick = () => { document.getElementById("q").value = s; document.getElementById("f").requestSubmit(); };
+      row.appendChild(b);
+    });
+    group.append(l, row);
+    chips.appendChild(group);
   });
 
   const f = document.getElementById("f");
